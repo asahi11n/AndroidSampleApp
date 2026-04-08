@@ -1,4 +1,4 @@
-package com.example.androidsampleapp
+package com.example.androidsampleapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,9 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.androidsampleapp.Todo
+import com.example.androidsampleapp.ui.TodoViewModel
 import com.example.androidsampleapp.databinding.FragmentEditTodoBinding
 import java.text.SimpleDateFormat
-import java.util.*
+import java.util.Date
+import java.util.Locale
 
 class EditTodoFragment : Fragment() {
 
@@ -84,7 +87,8 @@ class EditTodoFragment : Fragment() {
             val newTodo = Todo(title = title, content = content, createdAt = currentDate)
             viewModel.insert(newTodo)
         } else {
-            val updatedTodo = Todo(id = todoId, title = title, content = content, createdAt = currentDate)
+            val updatedTodo =
+                Todo(id = todoId, title = title, content = content, createdAt = currentDate)
             viewModel.update(updatedTodo)
         }
         parentFragmentManager.popBackStack()
@@ -94,7 +98,8 @@ class EditTodoFragment : Fragment() {
         if (todoId != -1) {
             val title = binding.editTextTitle.text.toString()
             val content = binding.editTextContent.text.toString()
-            val todo = Todo(id = todoId, title = title, content = content, createdAt = todoCreatedAt)
+            val todo =
+                Todo(id = todoId, title = title, content = content, createdAt = todoCreatedAt)
             viewModel.delete(todo)
             parentFragmentManager.popBackStack()
         }
