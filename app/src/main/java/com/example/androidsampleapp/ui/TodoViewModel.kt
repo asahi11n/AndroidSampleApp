@@ -1,14 +1,16 @@
-package com.example.androidsampleapp
+package com.example.androidsampleapp.ui
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.androidsampleapp.Todo
+import com.example.androidsampleapp.model.TodoDatabase
 import kotlinx.coroutines.launch
 
 class TodoViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val dao = TodoDatabase.getDatabase(application).todoDao()
+    private val dao = TodoDatabase.Companion.getDatabase(application).todoDao()
     val allTodos: LiveData<List<Todo>> = dao.getAllTodos()
 
     fun insert(todo: Todo) = viewModelScope.launch {

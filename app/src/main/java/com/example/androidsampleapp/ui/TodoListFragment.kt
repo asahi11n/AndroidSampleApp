@@ -1,4 +1,4 @@
-package com.example.androidsampleapp
+package com.example.androidsampleapp.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.androidsampleapp.R
+import com.example.androidsampleapp.ui.TodoViewModel
 import com.example.androidsampleapp.databinding.FragmentTodoListBinding
 
 class TodoListFragment : Fragment() {
@@ -28,7 +30,8 @@ class TodoListFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val adapter = TodoAdapter { todo ->
-            val fragment = EditTodoFragment.newInstance(todo.id, todo.title, todo.content, todo.createdAt)
+            val fragment =
+                EditTodoFragment.newInstance(todo.id, todo.title, todo.content, todo.createdAt)
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragment_container, fragment)
                 .addToBackStack(null)

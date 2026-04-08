@@ -1,10 +1,11 @@
-package com.example.androidsampleapp
+package com.example.androidsampleapp.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.androidsampleapp.Todo
 import com.example.androidsampleapp.databinding.ItemTodoBinding
 
 class TodoAdapter(private val onItemClick: (Todo) -> Unit) :

@@ -1,7 +1,9 @@
-package com.example.androidsampleapp
+package com.example.androidsampleapp.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.example.androidsampleapp.R
+import com.example.androidsampleapp.ui.TodoListFragment
 import com.example.androidsampleapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
