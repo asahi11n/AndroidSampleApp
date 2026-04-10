@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.androidsampleapp.Todo
-import com.example.androidsampleapp.ui.TodoViewModel
 import com.example.androidsampleapp.databinding.FragmentEditTodoBinding
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -70,8 +70,19 @@ class EditTodoFragment : Fragment() {
         }
 
         binding.buttonDelete.setOnClickListener {
-            deleteTodo()
+            showDeleteConfirmationDialog()
         }
+    }
+
+    private fun showDeleteConfirmationDialog() {
+        AlertDialog.Builder(requireContext())
+            .setTitle("削除の確認")
+            .setMessage("このTODOを削除してもよろしいですか？")
+            .setPositiveButton("削除") { _, _ ->
+                deleteTodo()
+            }
+            .setNegativeButton("キャンセル", null)
+            .show()
     }
 
     private fun saveTodo() {
