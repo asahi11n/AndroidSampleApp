@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidSampleApp</string>
+    <string name="delete">削除</string>
+    <string name="cancel">キャンセル</string>
+    <string name="confirm_delete_todo">削除の確認</string>
+    <string name="message_delete_todo">このTODOを削除してもよろしいですか？</string>
 </resources>
