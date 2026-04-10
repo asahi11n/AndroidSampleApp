@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.example.androidsampleapp.R
 import com.example.androidsampleapp.Todo
 import com.example.androidsampleapp.databinding.FragmentEditTodoBinding
 import java.text.SimpleDateFormat
@@ -76,12 +77,12 @@ class EditTodoFragment : Fragment() {
 
     private fun showDeleteConfirmationDialog() {
         AlertDialog.Builder(requireContext())
-            .setTitle("削除の確認")
-            .setMessage("このTODOを削除してもよろしいですか？")
-            .setPositiveButton("削除") { _, _ ->
+            .setTitle(getString(R.string.confirm_delete_todo))
+            .setMessage(getString(R.string.message_delete_todo))
+            .setPositiveButton(getString(R.string.delete)) { _, _ ->
                 deleteTodo()
             }
-            .setNegativeButton("キャンセル", null)
+            .setNegativeButton(getString(R.string.cancel), null)
             .show()
     }
 
